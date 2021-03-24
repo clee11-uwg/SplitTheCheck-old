@@ -1,37 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<h2>
+  <strong><%= @restaurant.name %> Information</strong>
+</h2>
+
 <p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
+  <strong>Location:</strong> <br>
+  <%= @restaurant.address %> <br>
+  <%= @restaurant.city %>, <%= @restaurant.state %> <%= @restaurant.zip %>
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @restaurant.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @restaurant.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @restaurant.zip %>
-</p>
-
-<p>
-  <strong>Upvotecount:</strong>
+  <strong>Number of Up Votes:</strong>
   <%= @restaurant.upVoteCount %>
 </p>
 
 <p>
-  <strong>Downvotecount:</strong>
+  <strong>Number of Down Votes:</strong>
   <%= @restaurant.downVoteCount %>
 </p>
 
