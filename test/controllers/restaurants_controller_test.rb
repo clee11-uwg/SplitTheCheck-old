@@ -20,7 +20,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
       post restaurants_url, params: { restaurant: { address: @restaurant.address, city: @restaurant.city, downVoteCount: @restaurant.downVoteCount, name: @restaurant.name, state: @restaurant.state, upVoteCount: @restaurant.upVoteCount, zip: @restaurant.zip } }
     end
 
-    assert_redirected_to restaurant_url(Restaurant.last)
+    assert_redirected_to restaurants_path_path
   end
 
   test "should show restaurant" do
@@ -35,14 +35,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update restaurant" do
     patch restaurant_url(@restaurant), params: { restaurant: { address: @restaurant.address, city: @restaurant.city, downVoteCount: @restaurant.downVoteCount, name: @restaurant.name, state: @restaurant.state, upVoteCount: @restaurant.upVoteCount, zip: @restaurant.zip } }
-    assert_redirected_to restaurant_url(@restaurant)
+    assert_redirected_to restaurants_path_path
   end
 
-  test "should destroy restaurant" do
-    assert_difference('Restaurant.count', -1) do
-      delete restaurant_url(@restaurant)
-    end
-
-    assert_redirected_to restaurants_url
-  end
 end
