@@ -47,19 +47,21 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  # I am not sure where or how to implement the logic needed in order to increase the upVoteCount by 1
   def addWillSplitVote
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.vote_up
+    @restaurant.save
     respond_to do |format|
-      format.html { redirect_to restaurants_path_path, notice: "Will split count was successfully updated." }
+        format.html { redirect_to restaurants_path_path, notice: "Will split count was successfully updated." }
     end
   end
-
-  # I am not sure where or how to implement the logic needed in order to increase the upVoteCount by 1
-  def addWontSplitVote
-    respond_to do |format|
-      format.html { redirect_to restaurants_path_path, notice: "Won't split count was successfully updated." }
-    end
-  end
+  #
+  # # I am not sure where or how to implement the logic needed in order to increase the upVoteCount by 1
+  # def addWontSplitVote
+  #   respond_to do |format|
+  #     format.html { redirect_to restaurants_path_path, notice: "Won't split count was successfully updated." }
+  #   end
+  # end
 
   def search
     if params[:search].blank?
