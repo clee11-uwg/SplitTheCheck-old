@@ -61,6 +61,15 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to(restaurants_path_path, alert: "Empty field!") and return
+    else
+      @parameter = params[:search].downcase
+      @results = Store.all.where("lower(name) LIKE :search", search: @parameter)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
