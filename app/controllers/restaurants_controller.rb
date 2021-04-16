@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants or /restaurants.json
   def index
     @restaurants = Restaurant.all
+    @restaurants = Restaurant.search(params[:search])
   end
 
   # GET /restaurants/1 or /restaurants/1.json
@@ -66,11 +67,16 @@ class RestaurantsController < ApplicationController
   end
 
   def search
-    if params[:search].blank?
-      redirect_to(restaurants_path_path, alert: "Empty field!") and return
+    #@restaurants = Restaurant.search(params[:name])
+
+    if params[:name].blank?
+      redirect_to(restaurants_path_path, notice: "Empty field!") and return
     else
-      @parameter = params[:search].downcase
-      @results = Store.all.where("lower(name) LIKE :search", search: @parameter)
+      @parameter = params[:name].downcase
+      @restaurants = Restaurant.all.where("lower(name) LIKE :search", search: @parameter)
+      respond_to do |format|
+        format.html { redirect_to restaurants_path_path, notice: "Search completed" }
+      end
     end
   end
 
@@ -82,6 +88,6 @@ class RestaurantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :upVoteCount, :downVoteCount)
+      params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :upVoteCount, :downVoteCount, :search)
     end
 end

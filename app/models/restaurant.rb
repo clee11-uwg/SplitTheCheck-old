@@ -2,10 +2,15 @@ class Restaurant < ApplicationRecord
   validates :name, :address, :city, :state, :zip, presence: true
 
   def self.search(search)
-    if (search)
-
+    if search
+      restaurant = Restaurant.find_by(name: search)
+      if restaurant
+        self.where(name: restaurant)
+      else
+        @restaurants = Restaurant.all
+      end
     else
-
+      @restaurants = Restaurant.all
     end
   end
 
