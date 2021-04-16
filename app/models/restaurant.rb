@@ -1,6 +1,5 @@
 class Restaurant < ApplicationRecord
   validates :name, :address, :city, :state, :zip, presence: true
-  attr_writer :upVoteCount
 
   def self.search(search)
     if (search)
@@ -11,10 +10,18 @@ class Restaurant < ApplicationRecord
   end
 
   def vote_up
-    self[:upVoteCount] += 1
+    if self[:upVoteCount] == nil
+      self[:upVoteCount] = 1
+    else
+      self[:upVoteCount] += 1
+    end
   end
 
   def vote_down
-    self[:downVoteCount] += 1
+    if self[:downVoteCount] == nil
+      self[:downVoteCount] = 1
+    else
+      self[:downVoteCount] += 1
+    end
   end
 end
