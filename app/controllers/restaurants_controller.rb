@@ -47,6 +47,20 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  # I am not sure where or how to implement the logic needed in order to increase the upVoteCount by 1
+  def addWillSplitVote
+    respond_to do |format|
+      format.html { redirect_to restaurants_path_path, notice: "Will split count was successfully updated." }
+    end
+  end
+
+  # I am not sure where or how to implement the logic needed in order to increase the upVoteCount by 1
+  def addWontSplitVote
+    respond_to do |format|
+      format.html { redirect_to restaurants_path_path, notice: "Won't split count was successfully updated." }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant

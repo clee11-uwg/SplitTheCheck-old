@@ -7,8 +7,8 @@
     <tr>
       <th>Name</th>
       <th>Location</th>
-      <th>Up Votes</th>
-      <th>Down Votes</th>
+      <th>Will Split</th>
+      <th>Won't Split</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +20,8 @@
         <td><%= restaurant.address %>, <%= restaurant.city %>, <%= restaurant.state %></td>
         <td><%= restaurant.upVoteCount %></td>
         <td><%= restaurant.downVoteCount %></td>
+        <td><%= link_to 'Add Will Split Vote', restaurants_path_path, method: :addWillSplitVote %></td>
+        <td><%= link_to "Add Won't Split Vote", restaurants_path_path, method: :addWontSplitVote %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
       </tr>
     <% end %>
