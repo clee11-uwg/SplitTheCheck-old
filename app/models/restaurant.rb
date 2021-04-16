@@ -13,4 +13,8 @@ class Restaurant < ApplicationRecord
   def vote_up
     self[:upVoteCount] += 1
   end
+
+  def vote_down
+    self[:downVoteCount] += 1
+  end
 end

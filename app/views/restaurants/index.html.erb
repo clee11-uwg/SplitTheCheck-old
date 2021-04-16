@@ -24,7 +24,7 @@
         <td><%= restaurant.upVoteCount %></td>
         <td><%= restaurant.downVoteCount %></td>
         <td><%= link_to 'Add Will Split Vote', up_vote_path(restaurant.id), method: 'put' %></td>
-        <td><%= link_to "Add Won't Split Vote", restaurants_path_path %></td>
+        <td><%= link_to "Add Won't Split Vote", down_vote_path(restaurant.id), method: 'put' %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
       </tr>
     <% end %>
