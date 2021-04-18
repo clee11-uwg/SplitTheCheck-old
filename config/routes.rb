@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'restaurants#index', as: 'restaurants_path'
 
   put 'restaurants/:id/addWillSplitVote', to: 'restaurants#addWillSplitVote', as: 'up_vote'
