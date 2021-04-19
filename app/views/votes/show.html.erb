@@ -6,14 +6,20 @@ but I kept getting an error saying:
 "undefined method 'name' for nil:NilClass"
 I am not sure why I am getting this error nor do I know how to fix it.
 
+I also tried moving the link_to from the table on the restaurant index page over to this page
+and am getting a similar error that I assume is being caused by the same problem as the above:
+not having restaurant passed over for some reason. I get an error saying:
+undefined local variable or method 'restaurant' for  #<#<Class:0x00007f8df475ef20>:0x00007f8df4584e98>
+
+There is no actual code here because no matter what I tried to put here, it kept
+blowing the app up. Hopefully the code can be found within the commits
+
+I sincerely apologize for this. I already have that feeling that with this grade,
+there's no way I am getting a B or better for the semester. I am very disappointed, upset,
+sad, and just angry with myself for not only not completing this assignment, 
+but just dropping the ball on this language all semester and not really understanding
+what's going on 95% of the time and not reaching out for help when I REALLY needed it
+and pretty much sealing the coffin shut on my quest to obtaining a master's degree here.
 -->
-
-<p>
-  <%= link_to 'Splits Check', up_vote_path(restaurant.id), method: 'put' %>
-</p>
-
-<p>
-  <%= link_to "Doesn't Split Check", down_vote_path(restaurant.id), method: 'put' %>
-</p>
 
 <%= link_to 'Back', votes_path %>
