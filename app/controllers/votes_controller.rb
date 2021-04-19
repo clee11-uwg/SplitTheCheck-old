@@ -8,6 +8,9 @@ class VotesController < ApplicationController
 
   # GET /votes/1 or /votes/1.json
   def show
+    # I am not sure why this isnt working. I get an error saying:
+    # undfined method 'set_restaurant' for #<Class:0x0000559a6a221780>
+    #Restaurant.set_restaurant
   end
 
   # GET /votes/new

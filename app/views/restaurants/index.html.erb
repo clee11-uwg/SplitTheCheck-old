@@ -26,8 +26,6 @@
         <td><%= restaurant.address %>, <%= restaurant.city %>, <%= restaurant.state %></td>
         <td><%= restaurant.upVoteCount %></td>
         <td><%= restaurant.downVoteCount %></td>
-        <td><%= link_to 'Splits Check', up_vote_path(restaurant.id), method: 'put' %></td>
-        <td><%= link_to "Doesn't Split Check", down_vote_path(restaurant.id), method: 'put' %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
       </tr>
     <% end %>
