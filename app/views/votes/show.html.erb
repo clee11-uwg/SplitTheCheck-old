@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <strong><%= @restaurant.name %> Information</strong>
+</h2>
+
+<p>
+  <strong>Location:</strong> <br>
+  <%= @restaurant.address %> <br>
+  <%= @restaurant.city %>, <%= @restaurant.state %> <%= @restaurant.zip %>
+</p>
+
+<p>
+  <strong>Number of Up Votes:</strong>
+  <%= @vote.upVoteUserCount %>
+</p>
+
+<p>
+  <strong>Number of Down Votes:</strong>
+  <%= @vote.downVoteUserCount %>
+</p>
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', votes_path %>
