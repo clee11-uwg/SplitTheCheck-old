@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2021_04_19_072934) do
     t.string "zip"
     t.integer "upVoteCount"
     t.integer "downVoteCount"
+    t.integer "upVoteUserCount"
+    t.integer "downVoteUserCount"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

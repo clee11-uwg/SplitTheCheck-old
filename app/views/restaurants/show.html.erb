@@ -21,10 +21,13 @@
 </p>
 
 <% if user_signed_in? %>
-<p>
-  <%= link_to 'Splits Check', up_vote_path(@restaurant.id), method: 'put' %>
-  <%= link_to "Doesn't Split Check", down_vote_path(@restaurant.id), method: 'put' %>
-</p>
+  <p><strong>Your vote history:</strong></p>
+  <p>Will Split: <%= @restaurant.upVoteUserCount %></p>  <!-- implement @restaurant.upVoteUserCount when created in restaurant -->
+  <p>Won't Split: <%= @restaurant.downVoteUserCount %></p>  <!-- implement @restaurant.downVoteUserCount when created in restaurant -->
+  <p>
+    <%= link_to 'Splits Check', up_vote_path(@restaurant.id), method: 'put' %>
+    <%= link_to "Doesn't Split Check", down_vote_path(@restaurant.id), method: 'put' %>
+  </p>
 <% end %>
 
 <%= link_to 'Back', restaurants_path_path %>

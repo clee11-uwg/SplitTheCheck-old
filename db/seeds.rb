@@ -15,7 +15,10 @@ Restaurant.create!(
   state: 'GA',
   zip: '32154',
   upVoteCount: 40,
-  downVoteCount: 25
+  downVoteCount: 25,
+  user_id: 1,
+  upVoteUserCount: 5,
+  downVoteUserCount: 2
 )
 Restaurant.create!(
   restaurant_id: 2,
