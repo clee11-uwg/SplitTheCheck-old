@@ -22,7 +22,7 @@
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
-        <td><%= link_to restaurant.name, vote_path(restaurant.id) %></td>
+        <td><%= link_to restaurant.name, restaurant_path(restaurant.id) %></td>
         <td><%= restaurant.address %>, <%= restaurant.city %>, <%= restaurant.state %></td>
         <td><%= restaurant.upVoteCount %></td>
         <td><%= restaurant.downVoteCount %></td>

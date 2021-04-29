@@ -11,13 +11,18 @@
 </p>
 
 <p>
-  <strong>Number of Up Votes:</strong>
+  <strong>Total number of Up Votes:</strong>
   <%= @restaurant.upVoteCount %>
 </p>
 
 <p>
-  <strong>Number of Down Votes:</strong>
+  <strong>Total number of Down Votes:</strong>
   <%= @restaurant.downVoteCount %>
+</p>
+
+<p>
+  <%= link_to 'Splits Check', up_vote_path(@restaurant.id), method: 'put' %>
+  <%= link_to "Doesn't Split Check", down_vote_path(@restaurant.id), method: 'put' %>
 </p>
 
 <%= link_to 'Back', restaurants_path_path %>
