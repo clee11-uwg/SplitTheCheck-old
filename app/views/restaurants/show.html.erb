@@ -20,9 +20,11 @@
   <%= @restaurant.downVoteCount %>
 </p>
 
+<% if user_signed_in? %>
 <p>
   <%= link_to 'Splits Check', up_vote_path(@restaurant.id), method: 'put' %>
   <%= link_to "Doesn't Split Check", down_vote_path(@restaurant.id), method: 'put' %>
 </p>
+<% end %>
 
 <%= link_to 'Back', restaurants_path_path %>
