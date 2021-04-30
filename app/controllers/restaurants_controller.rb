@@ -50,7 +50,7 @@ class RestaurantsController < ApplicationController
 
   def addWillSplitVote
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.add_up_vote(current_user.id)
+    @restaurant.add_up_vote(params[:user_id])
     @restaurant.save
     respond_to do |format|
         format.html { redirect_to restaurants_path_path, notice: "Will split count was successfully updated." }
@@ -90,6 +90,6 @@ class RestaurantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :upVoteCount, :downVoteCount, :search)
+      params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :upVoteCount, :downVoteCount, :search, :user_id)
     end
 end

@@ -25,7 +25,7 @@
   <p>Will Split: </p>  <!-- implement     when created in restaurant -->
   <p>Won't Split:</p>  <!-- implement     when created in restaurant -->
   <p>
-    <%= link_to 'Splits Check', up_vote_path(@restaurant.id), method: 'put' %>
+    <%= link_to 'Splits Check', up_vote_path(@restaurant.id, current_user), method: 'put' %>
     <%= link_to "Doesn't Split Check", down_vote_path(@restaurant.id), method: 'put' %>
   </p>
 <% end %>

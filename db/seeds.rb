@@ -52,9 +52,3 @@ User.create!(
   email: 'test@test.com',
   password: 'test1234',
 )
-# Vote.create!(
-#   user_id: 1,
-#   restaurant_id: 1,
-#   upVoteUserCount: 5,
-#   downVoteUserCount: 2
-# )

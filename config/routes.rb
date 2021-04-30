@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'restaurants#index', as: 'restaurants_path'
 
-  put 'restaurants/:id/addWillSplitVote', to: 'restaurants#addWillSplitVote', as: 'up_vote'
+  put 'restaurants/:id/addWillSplitVote/:user_id', to: 'restaurants#addWillSplitVote', as: 'up_vote'
 
   put 'restaurants/:id/addWontSplitVote', to: 'restaurants#addWontSplitVote', as: 'down_vote'
 

@@ -13,9 +13,6 @@
     <% @votes.each do |vote| %>
       <tr>
         <td><%= vote.user_id %></td>
-        <td><%= vote.restaurant_id %></td>
-        <td><%= vote.upVoteUserCount %></td>
-        <td><%= vote.downVoteUserCount %></td>
       </tr>
       <tr>
         <td><%= link_to 'Show', vote %></td>
