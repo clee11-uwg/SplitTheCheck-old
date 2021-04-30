@@ -2,9 +2,9 @@ class Restaurant < ApplicationRecord
   validates :name, :address, :city, :state, :zip, presence: true
   has_many :votes
 
-  def add_up_vote(user_id)
+  def add_up_vote(user_id, restaurant_id)
     #vote 1 = upvote, vote 2 = downvote
-    self.votes.create(vote: 1, user_id: user_id)
+    self.votes.create(vote: 1, user_id: user_id, restaurant_id: restaurant_id)
   end
 
   # def self.search(search)
