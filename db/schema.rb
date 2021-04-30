@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_072934) do
   create_table "votes", force: :cascade do |t|
     t.integer "vote"
     t.integer "user_id"
+    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
