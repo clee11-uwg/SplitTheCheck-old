@@ -22,8 +22,8 @@
 
 <% if user_signed_in? %>
   <p><strong>Your vote history:</strong></p>
-  <p>Will Split: <%= @restaurant.willSplitCount %></p>
-  <p>Won't Split:</p> 
+  <p>Will Split: </p>
+  <p>Won't Split:</p>
   <p>
     <%= link_to 'Splits Check', up_vote_path(@restaurant.id, current_user), method: 'put' %>
     <%= link_to "Doesn't Split Check", down_vote_path(@restaurant.id), method: 'put' %>
