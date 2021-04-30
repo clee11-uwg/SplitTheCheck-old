@@ -7,6 +7,10 @@ class Restaurant < ApplicationRecord
     self.votes.create(vote: 1, user_id: user_id, restaurant_id: restaurant_id)
   end
 
+  def willSplitCount
+    self.votes.count{ |x| x == 1}
+  end
+
   # def self.search(search)
   #   if search
   #     restaurant = Restaurant.find_by(name: search)

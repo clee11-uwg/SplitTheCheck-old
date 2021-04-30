@@ -22,7 +22,7 @@
 
 <% if user_signed_in? %>
   <p><strong>Your vote history:</strong></p>
-  <p>Will Split: </p>  <!-- implement     when created in restaurant -->
+  <p>Will Split: <%= @restaurant.willSplitCount %></p>  <!-- implement     when created in restaurant -->
   <p>Won't Split:</p>  <!-- implement     when created in restaurant -->
   <p>
     <%= link_to 'Splits Check', up_vote_path(@restaurant.id, current_user), method: 'put' %>
