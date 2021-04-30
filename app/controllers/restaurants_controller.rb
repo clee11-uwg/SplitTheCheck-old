@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants or /restaurants.json
   def index
     @restaurants = Restaurant.all
-    @restaurants = Restaurant.search(params[:search])
+    #@restaurants = Restaurant.search(params[:search])
   end
 
   # GET /restaurants/1 or /restaurants/1.json
@@ -50,7 +50,7 @@ class RestaurantsController < ApplicationController
 
   def addWillSplitVote
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.vote_up
+    @restaurant.add_up_vote(current_user.id)
     @restaurant.save
     respond_to do |format|
         format.html { redirect_to restaurants_path_path, notice: "Will split count was successfully updated." }
@@ -59,7 +59,7 @@ class RestaurantsController < ApplicationController
 
   def addWontSplitVote
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.vote_down
+    #@restaurant.vote_down
     @restaurant.save
     respond_to do |format|
       format.html { redirect_to restaurants_path_path, notice: "Won't split count was successfully updated." }

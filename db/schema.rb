@@ -21,9 +21,6 @@ ActiveRecord::Schema.define(version: 2021_04_19_072934) do
     t.string "zip"
     t.integer "upVoteCount"
     t.integer "downVoteCount"
-    t.integer "upVoteUserCount"
-    t.integer "downVoteUserCount"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,10 +39,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_072934) do
   end
 
   create_table "votes", force: :cascade do |t|
+    t.integer "vote"
     t.integer "user_id"
-    t.integer "restaurant_id"
-    t.integer "upVoteUserCount"
-    t.integer "downVoteUserCount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

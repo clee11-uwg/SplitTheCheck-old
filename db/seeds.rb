@@ -16,9 +16,6 @@ Restaurant.create!(
   zip: '32154',
   upVoteCount: 40,
   downVoteCount: 25,
-  user_id: 1,
-  upVoteUserCount: 5,
-  downVoteUserCount: 2
 )
 Restaurant.create!(
   restaurant_id: 2,
@@ -55,9 +52,9 @@ User.create!(
   email: 'test@test.com',
   password: 'test1234',
 )
-Vote.create!(
-  user_id: 1,
-  restaurant_id: 1,
-  upVoteUserCount: 5,
-  downVoteUserCount: 2
-)
+# Vote.create!(
+#   user_id: 1,
+#   restaurant_id: 1,
+#   upVoteUserCount: 5,
+#   downVoteUserCount: 2
+# )

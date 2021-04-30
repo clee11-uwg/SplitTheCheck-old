@@ -9,9 +9,6 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.string :zip
       t.integer :upVoteCount
       t.integer :downVoteCount
-      t.integer :upVoteUserCount
-      t.integer :downVoteUserCount
-      t.integer :user_id
 
       t.timestamps
     end
