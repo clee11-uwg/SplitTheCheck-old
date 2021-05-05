@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'restaurants#index', as: 'restaurants_path'
 
-  put 'restaurants/:id/addWillSplitVote/:user_id', to: 'restaurants#addWillSplitVote', as: 'up_vote'
+  put 'votes/create/:vote/:user_id/:restaurant_id', to: 'votes#create', as: 'up_vote'
 
-  put 'restaurants/:id/addWontSplitVote', to: 'restaurants#addWontSplitVote', as: 'down_vote'
+  put 'votes/create/:vote/:user_id/:restaurant_id', to: 'votes#create', as: 'down_vote'
 
   get 'restaurants/search', to: 'restaurants#search', as: 'search'
 

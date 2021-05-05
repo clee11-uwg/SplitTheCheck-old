@@ -25,10 +25,17 @@ class VotesController < ApplicationController
   # POST /votes or /votes.json
   def create
     @vote = Vote.new(vote_params)
-
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    if @vote.vote == 1
+      @restaurant.add_up_vote
+    end
+    if @vote.vote == 2
+      @restaurant.add_down_vote
+    end
+    @restaurant.save
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to @vote, notice: "Vote was successfully created." }
+        format.html { redirect_to restaurants_path, notice: "Vote was successfully created." }
         format.json { render :show, status: :created, location: @vote }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,15 +43,6 @@ class VotesController < ApplicationController
       end
     end
   end
-
-  # def addWillSplitVote
-  #   @restaurant = Restaurant.find(params[:id])
-  #   #@restaurant.add_up_vote(params[:user_id])
-  #   @restaurant.save
-  #   respond_to do |format|
-  #       format.html { redirect_to restaurants_path_path, notice: "Will split count was successfully updated." }
-  #   end
-  # end
 
   # PATCH/PUT /votes/1 or /votes/1.json
   def update
@@ -76,6 +74,6 @@ class VotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vote_params
-      params.require(:vote).permit(:vote, :user_id, :restaurant_id)
+      params.permit(:vote, :user_id, :restaurant_id)
     end
 end
