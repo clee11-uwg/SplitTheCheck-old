@@ -1,0 +1,13 @@
+<h1>Welcome <%= @user.id %></h1>
+
+<p><strong>Email: </strong><%= @user.email %></p>
+
+<p><strong>Votes:</strong></p>
+<ul>
+  <% @votes.each do |v| %>
+    <% @restaurants.each do |r| %>
+      <li>Vote: <%= v.vote %></li>
+      <li>Restaurant: <%= r.name %></li>
+    <% end %>
+  <% end %>
+</ul>

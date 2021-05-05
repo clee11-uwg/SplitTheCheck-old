@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   put 'restaurants/:id/addWontSplitVote', to: 'restaurants#addWontSplitVote', as: 'down_vote'
 
   get 'restaurants/search', to: 'restaurants#search', as: 'search'
+
+  get 'user/:id', to: 'users#show', as: 'user'
   resources :restaurants
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
