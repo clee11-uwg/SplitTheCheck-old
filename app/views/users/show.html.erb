@@ -21,4 +21,13 @@
 
 
 </ul>
-<%= render template: 'favorites/show' %>
+<p><strong>Favorites:</strong></p>
+<ul>
+  <% @favorites.each do |f| %>
+    <% @my_favs = UsersController.get_favs_by_rest_id(f.restaurant_id) %>
+    <% @my_favs.each do |mf| %>
+    <li><%= mf.name %></li>
+    <% end %>
+  <% end %>
+
+</ul>

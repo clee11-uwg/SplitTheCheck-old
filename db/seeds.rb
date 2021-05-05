@@ -72,3 +72,7 @@ Vote.create!(
   user_id: 2,
   restaurant_id: 2
 )
+Favorite.create!(
+  user_id: 1,
+  restaurant_id: 1
+)

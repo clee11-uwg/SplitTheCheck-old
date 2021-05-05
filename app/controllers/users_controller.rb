@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @@votes = Vote.where(user_id: @user.user_id)
     @restaurants = []
     @votes_by_rest_id = []
+    @favorites = Favorite.where(user_id: @user.user_id)
     @@votes.each do |v|
       @restaurant = Restaurant.where(restaurant_id: v.restaurant_id).take
       @votes_by_rest_id = @@votes.where(restaurant_id: v.restaurant_id)
@@ -14,6 +15,10 @@ class UsersController < ApplicationController
 
   def self.get_vote_by_rest_id(id)
     @my_votes = @@votes.where(restaurant_id: id)
+  end
+
+  def self.get_favs_by_rest_id(id)
+    @my_favs = @favorites.where(restaurant_id: id)
   end
 
   def new
