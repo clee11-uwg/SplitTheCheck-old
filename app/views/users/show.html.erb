@@ -1,13 +1,23 @@
-<h1>Welcome <%= @user.id %></h1>
+<h1>User Profile</h1>
 
 <p><strong>Email: </strong><%= @user.email %></p>
 
 <p><strong>Votes:</strong></p>
 <ul>
-  <% @votes.each do |v| %>
-    <% @restaurants.each do |r| %>
-      <li>Vote: <%= v.vote %></li>
-      <li>Restaurant: <%= r.name %></li>
-    <% end %>
+  <% @restaurants.each do |r| %>
+    <li>Restaurant: <%= r.name %></li>
+    <% @my_votes = UsersController.get_vote_by_rest_id(r.id) %>
+    <ul>
+    	<% @my_votes.each do |v| %>
+    	  <% if v.vote == 1 %>
+    	    <li>Vote: Does Split</li>
+    	  <% end %>
+        <% if v.vote == 2 %>
+    	    <li>Vote: Does not Split</li>
+    	  <% end %>
+    	<% end %>
+    </ul>
   <% end %>
+
+
 </ul>

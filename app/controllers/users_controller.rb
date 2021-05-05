@@ -1,11 +1,19 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @votes = Vote.where(user_id: @user.user_id)
-    @votes.each do |v|
-      @restaurants = Restaurant.where(restaurant_id: v.restaurant_id)
+    @@votes = Vote.where(user_id: @user.user_id)
+    @restaurants = []
+    @votes_by_rest_id = []
+    @@votes.each do |v|
+      @restaurant = Restaurant.where(restaurant_id: v.restaurant_id).take
+      @votes_by_rest_id = @@votes.where(restaurant_id: v.restaurant_id)
+      @restaurants << @restaurant
     end
 
+  end
+
+  def self.get_vote_by_rest_id(id)
+    @my_votes = @@votes.where(restaurant_id: id)
   end
 
   def new

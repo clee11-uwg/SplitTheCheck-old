@@ -52,8 +52,23 @@ User.create!(
   email: 'test@test.com',
   password: 'test1234',
 )
+User.create!(
+  user_id: 2,
+  email: 'me@test.com',
+  password: 'test1234',
+)
 Vote.create!(
   vote: 1,
   user_id: 1,
   restaurant_id: 1
+)
+Vote.create!(
+  vote: 2,
+  user_id: 1,
+  restaurant_id: 3
+)
+Vote.create!(
+  vote: 2,
+  user_id: 2,
+  restaurant_id: 2
 )
