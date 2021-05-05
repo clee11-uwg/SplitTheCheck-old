@@ -24,6 +24,7 @@
   <p>
     <%= link_to 'Splits Check', up_vote_path(1, current_user, @restaurant.id), method: 'put' %>
     <%= link_to "Doesn't Split Check", down_vote_path(2, current_user, @restaurant.id), method: 'put' %>
+    <%= link_to "Add to Favorites", add_to_favorites_path(current_user, @restaurant.id), method: 'put' %>
   </p>
 <% end %>
 

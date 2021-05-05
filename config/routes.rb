@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   put 'votes/create/:vote/:user_id/:restaurant_id', to: 'votes#create', as: 'down_vote'
 
+  put 'favorites/:user_id/:restaurant_id', to: 'favorites#create', as: 'add_to_favorites'
+
   get 'restaurants/search', to: 'restaurants#search', as: 'search'
 
   get 'user/:id', to: 'users#show', as: 'user'

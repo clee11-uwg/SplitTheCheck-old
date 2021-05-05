@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :votes
+  has_many :favorites
 
 
   # def add_up_vote(user_id)
